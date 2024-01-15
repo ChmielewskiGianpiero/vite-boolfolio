@@ -1,6 +1,10 @@
 <script>
 import axios from 'axios';
+import ProjectCard from '../../components/ProjectCard.vue';
   export default {
+    components: {
+      ProjectCard
+    },
     data(){
       return {
        projects: [],
@@ -12,7 +16,12 @@ import axios from 'axios';
             axios.get(`${this.BASE_URL}/projects`)
             .then((res) => {
                 console.log(res)
-                this.projects = res.data.results
+                // per stampare i dati col paginate
+                // this.projects = res.data.results.data
+
+                // per stampare i dati col ::all
+                 this.projects = res.data.results
+
             })
         }
     },
@@ -29,16 +38,19 @@ import axios from 'axios';
 
   <div class="container">
     <div class="grid">
-        <div class="card project-card" 
+        <ProjectCard class="card project-card" 
         v-for="project in projects"
-        :key="project.id">
-            <h2>{{ project.title }}</h2>
-            <p>{{ project.content }}</p>
-        </div>
+        :key="project.id"
+        :project="project"/>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4,1fr);
+}
 
 </style>
