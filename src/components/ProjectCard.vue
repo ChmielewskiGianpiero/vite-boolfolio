@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
   export default {
     props: {
         project: {
@@ -14,7 +13,9 @@ import axios from 'axios';
 <template>
   <div class="card card-project">
     <h1>{{project.title}}</h1>
-    <p>{{ project.content }}</p>
+    <p v-if="project.type"><strong>{{ project.type.name }}</strong></p>
+    <p v-if="project.technologies"><strong>{{ project.technologies.name }}</strong></p>
+
   </div>
 
   <!-- <div class="container">
