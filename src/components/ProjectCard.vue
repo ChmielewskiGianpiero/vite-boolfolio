@@ -15,7 +15,7 @@
     <h1>{{project.title}}</h1>
     <p v-if="project.type"><strong>{{ project.type.name }}</strong></p>
     <p v-if="project.technologies"><strong>{{ project.technologies.name }}</strong></p>
-
+    <router-link :to="{ name: 'projects.show', params: { slug: project.slug }}">Apri il progetto</router-link>
   </div>
 
   <!-- <div class="container">

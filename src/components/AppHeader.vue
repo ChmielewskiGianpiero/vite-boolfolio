@@ -13,7 +13,9 @@
             <li>
                 <router-link :to="{ name: 'projects'}">Portfolio</router-link>
             </li>
-            <li>Contacts</li>
+            <li>
+                <router-link :to="{ name: 'contacts'}">Contacts</router-link>
+            </li>
         </ul>
     </div>
 </template>
